@@ -9,43 +9,53 @@ import pandas as pd
 
 def _load_confusion(path: str) -> Tuple[np.ndarray, List[str]]:
     """
-    Loads labeled confusion CSV (index+header are labels) or raw numeric KxK CSV.
-    Returns (cm, labels).
+    Robust confusion loader.
+    Supports:
+      A) labeled CSV: first column index labels, header labels -> square
+      B) raw numeric CSV (no header) -> square
+    If a read produces a non-square matrix, fall back or repair.
     """
+    # Attempt labeled
     try:
         df = pd.read_csv(path, index_col=0)
-        cm = df.values.astype(np.int64)
-        labels = list(df.index.astype(str))
-        return cm, labels
+        cm = df.values
+        # If this is the "numeric-without-header but index_col=0" trap, it will be non-square
+        if cm.shape[0] == cm.shape[1]:
+            return cm.astype(np.int64), list(df.index.astype(str))
     except Exception:
-        cm = np.loadtxt(path, delimiter=",").astype(np.int64)
-        labels = [str(i) for i in range(cm.shape[0])]
-        return cm, labels
+        pass
+
+    # Fallback: raw numeric with no header
+    df2 = pd.read_csv(path, header=None)
+    cm2 = df2.values
+    if cm2.shape[0] != cm2.shape[1]:
+        # As a last resort, force to square by truncating to min dimension
+        m = min(cm2.shape[0], cm2.shape[1])
+        cm2 = cm2[:m, :m]
+    labels2 = [str(i) for i in range(cm2.shape[0])]
+    return cm2.astype(np.int64), labels2
 
 
 def _safe_div(a: float, b: float) -> float:
-    return float(a) / float(b) if b != 0 else 0.0
+    return float(a) / float(b) if b else 0.0
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--confusion", required=True, help="Confusion CSV")
     ap.add_argument("--out_prefix", required=True, help="Prefix for output files, e.g. outputs/report_vitb32")
-    ap.add_argument("--topk", type=int, default=15, help="How many confusions/classes to show")
+    ap.add_argument("--topk", type=int, default=15)
     args = ap.parse_args()
 
     cm, labels = _load_confusion(args.confusion)
     K = cm.shape[0]
     n = int(cm.sum())
 
-    # per-class counts + accuracy
     row_sum = cm.sum(axis=1)
     diag = np.diag(cm)
     per_class_acc = np.array([_safe_div(diag[i], row_sum[i]) for i in range(K)])
-
     overall_acc = _safe_div(diag.sum(), n)
 
-    # top confusions (excluding diagonal)
     conf_list = []
     for i in range(K):
         for j in range(K):
@@ -57,7 +67,6 @@ def main():
     conf_list.sort(reverse=True, key=lambda x: x[0])
     top_conf = conf_list[: args.topk]
 
-    # lowest per-class accuracy (only where we have some samples)
     idxs = [i for i in range(K) if row_sum[i] > 0]
     idxs.sort(key=lambda i: per_class_acc[i])
     low_classes = idxs[: args.topk]
@@ -66,7 +75,7 @@ def main():
     out_md = args.out_prefix + ".md"
 
     with open(out_md, "w") as f:
-        f.write(f"# muScale report\n\n")
+        f.write("# muScale report\n\n")
         f.write(f"- Confusion matrix: `{args.confusion}`\n")
         f.write(f"- K classes: {K}\n")
         f.write(f"- n samples (in confusion): {n}\n")

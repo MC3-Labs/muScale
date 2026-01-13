@@ -1,43 +1,40 @@
-# muScale report: Food-101 (test, 500-sample eval)
+# muScale report
 
-**Weak labeler:** CLIP ViT-B/32 (laion2b_s34b_b79k)
-**Eval size:** n=500 (K=101 classes)
+- Confusion matrix: `food101/outputs/confusion_vitb32.csv`
+- K classes: 101
+- n samples (in confusion): 500
+- Overall weak-label accuracy (on sampled gold set): 0.8620
 
-## Summary
-- H(Y): **6.4864 bits**
-- I(Y; Y~): **5.9723 bits**
-- λ_pred = I/H: **0.9207**
-- Overall accuracy on eval: **0.8620**
-- Prediction entropy (sanity check): **6.4500 bits**
-
-## Interpretation
-Assuming roughly random / independent errors, **1 weak label ≈ 0.921 gold labels** in variance-reduction value.
-
-## Top confusions (true → predicted)
-- 58 → 45: 3 (75.0% of that true class)
-- 93 → 77: 3 (37.5% of that true class)
-- 0 → 8: 1 (33.3% of that true class)
-- 3 → 54: 1 (25.0% of that true class)
-- 3 → 81: 1 (25.0% of that true class)
-- 4 → 3: 1 (20.0% of that true class)
-- 5 → 16: 1 (12.5% of that true class)
-- 5 → 74: 1 (12.5% of that true class)
-- 6 → 12: 1 (10.0% of that true class)
-- 6 → 42: 1 (10.0% of that true class)
+## Top confusions (count; percent within true class)
+- ice_cream → frozen_yogurt: 3 (75.0% of that true class)
+- steak → pork_chop: 3 (37.5% of that true class)
+- apple_pie → bread_pudding: 1 (33.3% of that true class)
+- beef_carpaccio → hot_and_sour_soup: 1 (25.0% of that true class)
+- beef_carpaccio → ramen: 1 (25.0% of that true class)
+- beef_tartare → beef_carpaccio: 1 (20.0% of that true class)
+- beet_salad → cheese_plate: 1 (12.5% of that true class)
+- beet_salad → peking_duck: 1 (12.5% of that true class)
+- beignets → cannoli: 1 (10.0% of that true class)
+- beignets → french_toast: 1 (10.0% of that true class)
+- bruschetta → escargots: 1 (33.3% of that true class)
+- bruschetta → grilled_salmon: 1 (33.3% of that true class)
+- cannoli → croque_madame: 1 (9.1% of that true class)
+- caprese_salad → bruschetta: 1 (11.1% of that true class)
+- ceviche → beef_carpaccio: 1 (33.3% of that true class)
 
 ## Lowest per-class accuracy (quick scan)
-- 58: acc=0.250 (n=4)
-- 10: acc=0.333 (n=3)
-- 93: acc=0.500 (n=8)
-- 3: acc=0.500 (n=4)
-- 31: acc=0.500 (n=4)
-- 55: acc=0.500 (n=2)
-- 62: acc=0.500 (n=2)
-- 71: acc=0.500 (n=2)
-- 99: acc=0.500 (n=2)
-- 100: acc=0.600 (n=10)
-- 35: acc=0.600 (n=5)
-- 57: acc=0.600 (n=5)
-- 94: acc=0.600 (n=5)
-- 0: acc=0.667 (n=3)
-- 15: acc=0.667 (n=3)
+- ice_cream: acc=0.250 (n=4)
+- bruschetta: acc=0.333 (n=3)
+- beef_carpaccio: acc=0.500 (n=4)
+- donuts: acc=0.500 (n=4)
+- hot_dog: acc=0.500 (n=2)
+- macaroni_and_cheese: acc=0.500 (n=2)
+- paella: acc=0.500 (n=2)
+- steak: acc=0.500 (n=8)
+- tuna_tartare: acc=0.500 (n=2)
+- escargots: acc=0.600 (n=5)
+- hummus: acc=0.600 (n=5)
+- strawberry_shortcake: acc=0.600 (n=5)
+- waffles: acc=0.600 (n=10)
+- apple_pie: acc=0.667 (n=3)
+- ceviche: acc=0.667 (n=3)
