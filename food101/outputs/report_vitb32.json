@@ -1,0 +1,201 @@
+{
+  "dataset": "Food-101 (test, 500-sample eval)",
+  "weak_labeler": "CLIP ViT-B/32 (laion2b_s34b_b79k)",
+  "confusion_path": "food101/outputs/confusion_vitb32.csv",
+  "n_total": 500,
+  "K": 101,
+  "overall_acc_on_eval": 0.862,
+  "H_Y_bits": 6.486414017576546,
+  "I_Y_Ytilde_bits": 5.97232169931873,
+  "lambda_pred": 0.9207432154554496,
+  "pred_entropy_bits": 6.449975164209252,
+  "top_confusions": [
+    {
+      "true": "58",
+      "pred": "45",
+      "count": 3,
+      "row_frac": 0.75
+    },
+    {
+      "true": "93",
+      "pred": "77",
+      "count": 3,
+      "row_frac": 0.375
+    },
+    {
+      "true": "0",
+      "pred": "8",
+      "count": 1,
+      "row_frac": 0.3333333333333333
+    },
+    {
+      "true": "3",
+      "pred": "54",
+      "count": 1,
+      "row_frac": 0.25
+    },
+    {
+      "true": "3",
+      "pred": "81",
+      "count": 1,
+      "row_frac": 0.25
+    },
+    {
+      "true": "4",
+      "pred": "3",
+      "count": 1,
+      "row_frac": 0.2
+    },
+    {
+      "true": "5",
+      "pred": "16",
+      "count": 1,
+      "row_frac": 0.125
+    },
+    {
+      "true": "5",
+      "pred": "74",
+      "count": 1,
+      "row_frac": 0.125
+    },
+    {
+      "true": "6",
+      "pred": "12",
+      "count": 1,
+      "row_frac": 0.1
+    },
+    {
+      "true": "6",
+      "pred": "42",
+      "count": 1,
+      "row_frac": 0.1
+    }
+  ],
+  "per_class_accuracy_worst_first": [
+    {
+      "class": "58",
+      "n": 4,
+      "acc": 0.25
+    },
+    {
+      "class": "10",
+      "n": 3,
+      "acc": 0.3333333333333333
+    },
+    {
+      "class": "93",
+      "n": 8,
+      "acc": 0.5
+    },
+    {
+      "class": "3",
+      "n": 4,
+      "acc": 0.5
+    },
+    {
+      "class": "31",
+      "n": 4,
+      "acc": 0.5
+    },
+    {
+      "class": "55",
+      "n": 2,
+      "acc": 0.5
+    },
+    {
+      "class": "62",
+      "n": 2,
+      "acc": 0.5
+    },
+    {
+      "class": "71",
+      "n": 2,
+      "acc": 0.5
+    },
+    {
+      "class": "99",
+      "n": 2,
+      "acc": 0.5
+    },
+    {
+      "class": "100",
+      "n": 10,
+      "acc": 0.6
+    },
+    {
+      "class": "35",
+      "n": 5,
+      "acc": 0.6
+    },
+    {
+      "class": "57",
+      "n": 5,
+      "acc": 0.6
+    },
+    {
+      "class": "94",
+      "n": 5,
+      "acc": 0.6
+    },
+    {
+      "class": "0",
+      "n": 3,
+      "acc": 0.6666666666666666
+    },
+    {
+      "class": "15",
+      "n": 3,
+      "acc": 0.6666666666666666
+    },
+    {
+      "class": "48",
+      "n": 3,
+      "acc": 0.6666666666666666
+    },
+    {
+      "class": "80",
+      "n": 3,
+      "acc": 0.6666666666666666
+    },
+    {
+      "class": "92",
+      "n": 3,
+      "acc": 0.6666666666666666
+    },
+    {
+      "class": "96",
+      "n": 3,
+      "acc": 0.6666666666666666
+    },
+    {
+      "class": "50",
+      "n": 7,
+      "acc": 0.7142857142857143
+    },
+    {
+      "class": "5",
+      "n": 8,
+      "acc": 0.75
+    },
+    {
+      "class": "32",
+      "n": 4,
+      "acc": 0.75
+    },
+    {
+      "class": "43",
+      "n": 4,
+      "acc": 0.75
+    },
+    {
+      "class": "51",
+      "n": 4,
+      "acc": 0.75
+    },
+    {
+      "class": "56",
+      "n": 4,
+      "acc": 0.75
+    }
+  ]
+}
