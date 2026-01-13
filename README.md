@@ -1,8 +1,6 @@
 # muScale
 
-muScale is a small toolkit for *microscaling laws* in mixed-supervision training: combining a limited set of **gold** labels with large volumes of **weak** labels from a foundation model (e.g., CLIP / BiomedCLIP / GPT-* vision).
-
-The working goal is simple: estimate how much weak supervision is “worth” relative to gold supervision, and use that to plan annotation budgets and label allocation without brute-force grid search.
+muScale is a small toolkit for *microscaling laws* in mixed-supervision training: combining a limited set of **gold** labels with large volumes of **weak** labels from a foundation model (e.g., CLIP / BiomedCLIP / GPT-* vision). The working goal is simple: estimate how much weak supervision is “worth” relative to gold supervision, and use that to plan annotation budgets and label allocation without brute-force grid search.
 
 This repo is the implementation companion to our paper:
 **μ-scaling Laws: Bias-Variance Decomposition for Foundation Model Augmentation Under Label Noise**.
