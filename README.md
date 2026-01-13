@@ -24,6 +24,12 @@ What’s *not* in here yet:
 
 ---
 
+## Food-101 Dataset with OpenCLIP weak labelers
+
+We use the Food-101 dataset (1010 food classes), with the weak labeler family based on **OpenCLIP** zero-shot classifiers across multiple backbones (e.g. ViT-B/32, ViT-B/16, ViT-L/14). 
+
+---
+
 ## Installation
 
 **Python 3.10+** recommended.
