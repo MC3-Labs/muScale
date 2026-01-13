@@ -1,0 +1,115 @@
+{
+  "created_at": "2026-01-13T23:02:28.199701Z",
+  "dataset": "Food101",
+  "weak_labeler": "open_clip ViT-B-32 (laion2b_s34b_b79k), prompt=food101/prompts.py",
+  "notes": "",
+  "inputs": {
+    "confusion_path": "food101/outputs/confusion_vitb32.csv"
+  },
+  "summary": {
+    "K": 101,
+    "n_total": 500,
+    "overall_accuracy": 0.862,
+    "H_bits": 6.486414017576546,
+    "I_bits": 5.97232169931873,
+    "lambda_pred": 0.9207432154554496
+  },
+  "top_confusions": [
+    {
+      "true": "ice_cream",
+      "pred": "frozen_yogurt",
+      "count": 3,
+      "pct_within_true": 75.0
+    },
+    {
+      "true": "steak",
+      "pred": "pork_chop",
+      "count": 3,
+      "pct_within_true": 37.5
+    },
+    {
+      "true": "apple_pie",
+      "pred": "bread_pudding",
+      "count": 1,
+      "pct_within_true": 33.33333333333333
+    },
+    {
+      "true": "beef_carpaccio",
+      "pred": "hot_and_sour_soup",
+      "count": 1,
+      "pct_within_true": 25.0
+    },
+    {
+      "true": "beef_carpaccio",
+      "pred": "ramen",
+      "count": 1,
+      "pct_within_true": 25.0
+    },
+    {
+      "true": "beef_tartare",
+      "pred": "beef_carpaccio",
+      "count": 1,
+      "pct_within_true": 20.0
+    },
+    {
+      "true": "beet_salad",
+      "pred": "cheese_plate",
+      "count": 1,
+      "pct_within_true": 12.5
+    },
+    {
+      "true": "beet_salad",
+      "pred": "peking_duck",
+      "count": 1,
+      "pct_within_true": 12.5
+    },
+    {
+      "true": "beignets",
+      "pred": "cannoli",
+      "count": 1,
+      "pct_within_true": 10.0
+    },
+    {
+      "true": "beignets",
+      "pred": "french_toast",
+      "count": 1,
+      "pct_within_true": 10.0
+    },
+    {
+      "true": "bruschetta",
+      "pred": "escargots",
+      "count": 1,
+      "pct_within_true": 33.33333333333333
+    },
+    {
+      "true": "bruschetta",
+      "pred": "grilled_salmon",
+      "count": 1,
+      "pct_within_true": 33.33333333333333
+    },
+    {
+      "true": "cannoli",
+      "pred": "croque_madame",
+      "count": 1,
+      "pct_within_true": 9.090909090909092
+    },
+    {
+      "true": "caprese_salad",
+      "pred": "bruschetta",
+      "count": 1,
+      "pct_within_true": 11.11111111111111
+    },
+    {
+      "true": "ceviche",
+      "pred": "beef_carpaccio",
+      "count": 1,
+      "pct_within_true": 33.33333333333333
+    }
+  ],
+  "artifacts": {
+    "report_md": "food101/outputs/vitb32_bundle.md",
+    "bundle_json": "food101/outputs/vitb32_bundle.json",
+    "per_class_csv": "food101/outputs/vitb32_bundle_per_class.csv",
+    "heatmap_png": "food101/outputs/vitb32_bundle_heatmap.png"
+  }
+}

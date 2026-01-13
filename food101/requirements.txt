@@ -8,4 +8,5 @@ numpy
 pandas
 pyyaml
 pyarrow
+matplotlib>=3.7
 
