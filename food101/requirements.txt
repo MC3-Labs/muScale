@@ -7,4 +7,5 @@ tqdm
 numpy
 pandas
 pyyaml
+pyarrow
 
